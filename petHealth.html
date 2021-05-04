@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="city" id="cityID">
+        <option value="">請選擇</option>
+    </select>
+
+    <hr>
+    <div id=cityCard class="row">
+
+    </div>
+    <script>
+        let getSelectCity = document.getElementById('cityID');
+        let getCityCard = document.getElementById('cityCard');
+        function getData() {
+            fetch('js/petHospital.json')
+                .then(function (response) {
+                    
+                    return response.json();
+                })
+                .then(function (data) {
+                    // console.log(data[0].縣市);
+                    return getCity(data)
+                });
+        }
+        getData();
+        function getCity(data) {
+            const set = new Set();
+            return writeCity(data.filter(item => !set.has(item['縣市']) ? set.add(item['縣市']) : false)
+        .map(item =>item['縣市']));
+
+        }
+        function writeCity(data) {
+            let str = '';
+            for (let index = 0; index < data.length; index++) {
+                str += `<option value='${data[index]}'>${data[index]}</option>`;
+            }
+            getSelectCity.innerHTML += str;
+        }
+        getSelectCity.addEventListener('change', selectFun);
+        function selectFun() {
+            fetch('js/petHospital.json')
+                .then(function (response) {
+                    
+                    return response.json();
+                })
+                .then(function (data) {
+                    let num = 0;
+                    for(let i = 0; i < data.length; i++) {
+                        if(getSelectCity.value ==data[i]['縣市']){
+                            console.log(data[i]);
+                            num++;
+                        }
+                    }
+                    console.log(num);
+                    
+                });
+        }
+
+
+    </script>
+</body>
+
+</html>
