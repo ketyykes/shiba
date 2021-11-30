@@ -65,10 +65,9 @@
     position:relative;
     box-sizing: border-box;
     border-radius: 100px;
-    transform: translate(12.5%,12.5%);
     height: 25vh;
     width: 100%;
-    animation: .2s ease-in-out forwards clickBoxKeyframes;
+    animation: 2s ease-in-out forwards clickBoxKeyframes;
 }
 .clickedBox h2{
     background-color: #fff;
@@ -94,10 +93,11 @@
 }
 @keyframes clickBoxKeyframes {
     0% {
-        width: 0vw;
+        transform: scale(.1) translate(10%, 10%);
         opacity:0;
     }
     100% {
+        transform: scale(1) translate(10%, 10%);
         width: 80vw;
         opacity: 1.0;
     }

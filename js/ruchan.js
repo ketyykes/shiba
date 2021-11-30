@@ -13,11 +13,13 @@ getPhotoBox.addEventListener("click",function(e){
     getClickedBox.childNodes[3].textContent = ("src", obj.h2);
     getClickedBox.childNodes[5].textContent = ("src", obj.p);
     getFixed.style.display = "block";
+    getBody.style.overflow = "hidden";
 });
 
 getFixed.addEventListener("click", function() {
     if( getFixed.style.display == "block"){
         getFixed.style.display ="none";
+        getBody.style.overflow = "auto";
     }
 })
 
