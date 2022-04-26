@@ -8,7 +8,7 @@
    padding-right: 10%;
 }
 .wrapPhoto li{
-    width: 31.3333%;
+    width: calc(100% / 3);
 }
 .wrapPhoto li>div{
     margin-left: calc(3%/3);
