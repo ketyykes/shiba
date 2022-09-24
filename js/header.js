@@ -1,7 +1,7 @@
 let getHead = document.querySelector(".head");
 getHead.innerHTML = `<div class="followUs">
 
-<a href="#"><img src="img/instagram.png" alt=""></a>
+<a href="https://www.instagram.com/lujian_shibainu/"><img src="img/instagram.png" alt=""></a>
 <div class="ham">
     <div class="span"></div>
 </div>
